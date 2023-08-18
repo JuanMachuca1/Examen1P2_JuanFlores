@@ -17,7 +17,7 @@ public class Equipo {
         
     }
 
-    public Equipo(String nombreEq, String pais, int rating) {
+    public Equipo(String nombreEq, String pais) {
         this.nombreEq = nombreEq;
         this.pais = pais;
         setRating();
