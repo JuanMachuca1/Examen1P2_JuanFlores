@@ -5,22 +5,23 @@
 package examen1p2_juanflores;
 
 
-public class Jugador {
+public abstract class Jugador {
     private String nombre;
     private int edad;
     private String nacionalidad;
     private String pieHabil;
-    private int rating;
+    protected int rating;
     private String equipo;
-    private int agarre;
-    private int lanzamiento;
-    private int fisico;
-    private int ritmo;
-    private int entrada;
-    private int vision;
-    private int passing;
-    private int regate;
-    private int disparo;
+    
+    protected int agarre;
+    protected int lanzamiento;
+    protected int fisico;
+    protected int ritmo;
+    protected int entrada;
+    protected int vision;
+    protected int passing;
+    protected int regate;
+    protected int disparo;
 
     public Jugador() {
     }
@@ -42,6 +43,18 @@ public class Jugador {
         this.regate = regate;
         this.disparo = disparo;
     }
+
+    public Jugador(String nombre, int edad, String nacionalidad, String pieHabil, String equipo) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.nacionalidad = nacionalidad;
+        this.pieHabil = pieHabil;
+        this.rating = rating;
+        this.equipo = equipo;
+    }
+
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -79,9 +92,7 @@ public class Jugador {
         return rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
+    public abstract void setRating(); 
 
     public String getEquipo() {
         return equipo;
@@ -95,73 +106,57 @@ public class Jugador {
         return agarre;
     }
 
-    public void setAgarre(int agarre) {
-        this.agarre = agarre;
-    }
+    public abstract void setAgarre(); 
+       
+    
 
     public int getLanzamiento() {
         return lanzamiento;
     }
 
-    public void setLanzamiento(int lanzamiento) {
-        this.lanzamiento = lanzamiento;
-    }
+   public abstract void setLanzamiento(); 
 
     public int getFisico() {
         return fisico;
     }
 
-    public void setFisico(int fisico) {
-        this.fisico = fisico;
-    }
+    public abstract void setFisico(); 
 
     public int getRitmo() {
         return ritmo;
     }
 
-    public void setRitmo(int ritmo) {
-        this.ritmo = ritmo;
-    }
+    public abstract void setRitmo(); 
 
     public int getEntrada() {
         return entrada;
     }
 
-    public void setEntrada(int entrada) {
-        this.entrada = entrada;
-    }
+    public abstract void setEntrada(); 
 
     public int getVision() {
         return vision;
     }
 
-    public void setVision(int vision) {
-        this.vision = vision;
-    }
+    public abstract void setVision(); 
 
     public int getPassing() {
         return passing;
     }
 
-    public void setPassing(int passing) {
-        this.passing = passing;
-    }
+    public abstract void setPassing(); 
 
     public int getRegate() {
         return regate;
     }
 
-    public void setRegate(int regate) {
-        this.regate = regate;
-    }
+    public abstract void setRegate(); 
 
     public int getDisparo() {
         return disparo;
     }
 
-    public void setDisparo(int disparo) {
-        this.disparo = disparo;
-    }
+    public abstract void setDisparo(); 
 
     @Override
     public String toString() {

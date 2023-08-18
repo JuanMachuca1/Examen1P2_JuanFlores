@@ -4,10 +4,55 @@
  */
 package examen1p2_juanflores;
 
-/**
- *
- * @author JD
- */
+import java.util.ArrayList;
+
+
 public class Equipo {
+    private String nombreEq;
+    private String pais;
+    private int rating;
+    private ArrayList<Jugador> Plantilla = new ArrayList();
+
+    public Equipo() {
+    }
+
+    public String getNombre() {
+        return nombreEq;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombreEq = nombre;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public ArrayList<Jugador> getPlantilla() {
+        return Plantilla;
+    }
+
+    public void setPlantilla(ArrayList<Jugador> Plantilla) {
+        this.Plantilla = Plantilla;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipo{" + "nombre=" + nombreEq + ", pais=" + pais + ", rating=" + rating + ", Plantilla=" + Plantilla + '}';
+    }
+    
+    
     
 }
