@@ -14,7 +14,15 @@ public class Equipo {
     private ArrayList<Jugador> Plantilla = new ArrayList();
 
     public Equipo() {
+        
     }
+
+    public Equipo(String nombreEq, String pais, int rating) {
+        this.nombreEq = nombreEq;
+        this.pais = pais;
+        setRating();
+    }
+    
 
     public String getNombre() {
         return nombreEq;
@@ -36,8 +44,17 @@ public class Equipo {
         return rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setRating() {
+         int acum=0; 
+         int rat=0;
+        for (Jugador jugador : Plantilla) {
+            
+            acum+=jugador.getRating();
+            
+            rat=acum/Plantilla.size();
+        }
+        
+        this.rating=rat;
     }
 
     public ArrayList<Jugador> getPlantilla() {
