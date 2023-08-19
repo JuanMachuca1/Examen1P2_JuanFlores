@@ -40,6 +40,10 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         EquipoEdit = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         EquipoX = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        Equipo_Eliminar = new javax.swing.JComboBox<>();
+        Elim_equipo = new javax.swing.JButton();
         Estadio = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,7 +53,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         NombreEstadio = new javax.swing.JTextField();
         CiudadEstadio = new javax.swing.JTextField();
         CapacidadEstadio = new javax.swing.JTextField();
-        Estadios = new javax.swing.JComboBox<>();
+        Equipo_Estadios = new javax.swing.JComboBox<>();
         AgregarEstadio = new javax.swing.JButton();
         EstadioEdit = new javax.swing.JTabbedPane();
         EstadioX = new javax.swing.JTabbedPane();
@@ -73,8 +77,17 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         TipoJugador = new javax.swing.JComboBox<>();
         JugadorEdit = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
         JugadorX = new javax.swing.JTabbedPane();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        Eliminar_jugador = new javax.swing.JComboBox<>();
+        JugadoElim = new javax.swing.JButton();
         Listar = new javax.swing.JTabbedPane();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        d = new javax.swing.JTextArea();
+        ListarTod = new javax.swing.JButton();
         Simulacion = new javax.swing.JTabbedPane();
         Equipo = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -105,6 +118,54 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         EquipoEdit.addTab("tab1", jPanel2);
 
         FIFA.addTab("Editar Equipo", EquipoEdit);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel14.setText("INGRESE EL EQUIPO A ELIMINAR: ");
+
+        Equipo_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Equipo_EliminarMouseClicked(evt);
+            }
+        });
+
+        Elim_equipo.setText("ELIMINAR");
+        Elim_equipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Elim_equipoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(264, 264, 264)
+                        .addComponent(Equipo_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(Elim_equipo)))
+                .addContainerGap(180, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel14)
+                .addGap(43, 43, 43)
+                .addComponent(Equipo_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(Elim_equipo)
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+
+        EquipoX.addTab("tab1", jPanel7);
+
         FIFA.addTab("Eliminar Equipo", EquipoX);
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -119,14 +180,14 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setText("EQUIPO");
 
-        Estadios.addMouseListener(new java.awt.event.MouseAdapter() {
+        Equipo_Estadios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EstadiosMouseClicked(evt);
+                Equipo_EstadiosMouseClicked(evt);
             }
         });
-        Estadios.addActionListener(new java.awt.event.ActionListener() {
+        Equipo_Estadios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EstadiosActionPerformed(evt);
+                Equipo_EstadiosActionPerformed(evt);
             }
         });
 
@@ -152,7 +213,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(Estadios, 0, 251, Short.MAX_VALUE)
+                        .addComponent(Equipo_Estadios, 0, 251, Short.MAX_VALUE)
                         .addGap(206, 206, 206))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -184,7 +245,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(Estadios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Equipo_Estadios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(AgregarEstadio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
@@ -377,8 +438,108 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         Jugador.addTab("tab1", jPanel4);
 
         FIFA.addTab("Ingresar Jugador", Jugador);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 716, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 297, Short.MAX_VALUE)
+        );
+
+        JugadorEdit.addTab("tab1", jPanel6);
+
         FIFA.addTab("Editar Jugador", JugadorEdit);
+
+        jLabel15.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel15.setText("INGRESE EL  JUGADOR AL ELIMINAR:");
+
+        Eliminar_jugador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Eliminar_jugador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Eliminar_jugadorMouseClicked(evt);
+            }
+        });
+
+        JugadoElim.setText("ELIMINAR");
+        JugadoElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JugadoElimActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jLabel15))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JugadoElim, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Eliminar_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(Eliminar_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(JugadoElim, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+
+        JugadorX.addTab("tab1", jPanel8);
+
         FIFA.addTab("Eliminar Jugador", JugadorX);
+
+        d.setColumns(20);
+        d.setRows(5);
+        jScrollPane1.setViewportView(d);
+
+        ListarTod.setText("LISTAR");
+        ListarTod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListarTodMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(286, 286, 286)
+                        .addComponent(ListarTod, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(154, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(ListarTod, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
+        );
+
+        Listar.addTab("tab1", jPanel9);
+
         FIFA.addTab("Listar Todo", Listar);
         FIFA.addTab("Simulacion", Simulacion);
 
@@ -508,6 +669,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         
         estadios.add(new Estadio(nombre, ciudad, capac));
         
+        
         JOptionPane.showMessageDialog(this, "Estadio ingresado exitosamente");
     }//GEN-LAST:event_AgregarEstadioMouseClicked
 
@@ -532,7 +694,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
           int edad = Integer.parseInt(EdadJugador.getText());
           String nacionalidad = NacionalidadJ.getText(); 
           String pieJugador = PieJugador.getText();
-          Equipo Equipo_Jugador =(Equipo)EquiposJ.getSelectedItem(); 
+          
           String equipo = EquiposJ.getSelectedItem().toString();
           jugadores.add(new Portero(nombre, edad, nacionalidad, pieJugador, equipo));
            
@@ -541,7 +703,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
            int edad = Integer.parseInt(EdadJugador.getText());
            String nacionalidad = NacionalidadJ.getText();
            String pieJugador = PieJugador.getText();
-           Equipo Equipo_Jugador =(Equipo)EquiposJ.getSelectedItem(); 
+            
            String equipo = EquiposJ.getSelectedItem().toString();
            jugadores.add(new Defensa(nombre, edad, nacionalidad, pieJugador, equipo));
            
@@ -550,7 +712,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
            int edad = Integer.parseInt(EdadJugador.getText());
            String nacionalidad = NacionalidadJ.getText();
            String pieJugador = PieJugador.getText();
-           Equipo Equipo_Jugador =(Equipo)EquiposJ.getSelectedItem(); 
+          
            String equipo = EquiposJ.getSelectedItem().toString();
            jugadores.add(new Mediocampista(nombre, edad, nacionalidad, pieJugador, equipo));
            
@@ -559,7 +721,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
            int edad = Integer.parseInt(EdadJugador.getText());
            String nacionalidad = NacionalidadJ.getText();
            String pieJugador = PieJugador.getText();
-           Equipo Equipo_Jugador =(Equipo)EquiposJ.getSelectedItem(); 
+          
            String equipo = EquiposJ.getSelectedItem().toString();
            jugadores.add(new Delantero(nombre, edad, nacionalidad, pieJugador, equipo));
        }
@@ -580,13 +742,13 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_EquiposJMouseClicked
 
-    private void EstadiosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstadiosMouseClicked
-        DefaultComboBoxModel modeloE = ((DefaultComboBoxModel)Estadios.getModel());
+    private void Equipo_EstadiosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Equipo_EstadiosMouseClicked
+        DefaultComboBoxModel modeloE = ((DefaultComboBoxModel)Equipo_Estadios.getModel());
         
-        for (Estadio estadio : estadios) {
-            modeloE.addElement(estadio.getNombreEs());
+        for (Equipo equipo : equipos) {
+            modeloE.addElement(equipo.getNombre());
         }
-    }//GEN-LAST:event_EstadiosMouseClicked
+    }//GEN-LAST:event_Equipo_EstadiosMouseClicked
 
     private void EliminarEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEstadioActionPerformed
         // TODO add your handling code here:
@@ -614,9 +776,70 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
        estadios.remove(pos);
     }//GEN-LAST:event_EliminarEstadioMouseClicked
 
-    private void EstadiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadiosActionPerformed
+    private void Equipo_EstadiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Equipo_EstadiosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EstadiosActionPerformed
+    }//GEN-LAST:event_Equipo_EstadiosActionPerformed
+
+    private void Equipo_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Equipo_EliminarMouseClicked
+        DefaultComboBoxModel modelo = ((DefaultComboBoxModel)EquiposJ.getModel());
+        
+        for (Equipo equipo : equipos) {
+            modelo.addElement(equipo.getNombre());
+        }
+    }//GEN-LAST:event_Equipo_EliminarMouseClicked
+
+    private void Elim_equipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Elim_equipoMouseClicked
+        int pos = Equipo_Eliminar.getSelectedIndex();
+       
+       DefaultComboBoxModel modeloEst = ((DefaultComboBoxModel)Equipo_Eliminar.getModel());
+        
+        for (Equipo equipo : equipos) {
+            modeloEst.addElement(equipo.getNombre());
+        }
+        
+       modeloEst.removeElementAt(pos);
+       estadios.remove(pos);
+    }//GEN-LAST:event_Elim_equipoMouseClicked
+
+    private void JugadoElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugadoElimActionPerformed
+         int pos = Eliminar_jugador.getSelectedIndex();
+       
+       DefaultComboBoxModel modeloEst = ((DefaultComboBoxModel)Eliminar_jugador.getModel());
+        
+        for (Jugador jugador : jugadores) {
+            modeloEst.addElement(jugador.getNombre());
+        }
+        
+       modeloEst.removeElementAt(pos);
+       estadios.remove(pos);
+    }//GEN-LAST:event_JugadoElimActionPerformed
+
+    private void Eliminar_jugadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_jugadorMouseClicked
+        DefaultComboBoxModel modelo = ((DefaultComboBoxModel)Eliminar_jugador.getModel());
+        
+        for (Jugador jugador : jugadores) {
+            modelo.addElement(jugador.getNombre());
+        }
+    }//GEN-LAST:event_Eliminar_jugadorMouseClicked
+
+    private void ListarTodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListarTodMouseClicked
+        String salida="";
+       
+        for (int i = 0; i < estadios.size(); i++) {
+           salida+=estadios.get(i)+"\n";
+        }
+        
+        for (int i = 0; i < equipos.size(); i++) {
+           salida+=equipos.get(i)+"\n";
+        }
+        
+        for (int i = 0; i < jugadores.size(); i++) {
+            salida+=jugadores.get(i)+"\n";
+        }
+        d.setText(salida);
+        
+        
+    }//GEN-LAST:event_ListarTodMouseClicked
 
     
     public void llenarComboEquipo(){
@@ -665,22 +888,27 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
     private javax.swing.JTextField CapacidadEstadio;
     private javax.swing.JTextField CiudadEstadio;
     private javax.swing.JTextField EdadJugador;
+    private javax.swing.JButton Elim_equipo;
     private javax.swing.JButton EliminarEstadio;
+    private javax.swing.JComboBox<String> Eliminar_jugador;
     private javax.swing.JTabbedPane Equipo;
     private javax.swing.JTabbedPane EquipoEdit;
     private javax.swing.JTabbedPane EquipoX;
+    private javax.swing.JComboBox<String> Equipo_Eliminar;
+    private javax.swing.JComboBox<String> Equipo_Estadios;
     private javax.swing.JComboBox<String> EquiposJ;
     private javax.swing.JTabbedPane Estadio;
     private javax.swing.JTabbedPane EstadioEdit;
     private javax.swing.JTabbedPane EstadioX;
     private javax.swing.JComboBox<String> Estadio_Eliminar;
-    private javax.swing.JComboBox<String> Estadios;
     private javax.swing.JTabbedPane FIFA;
     private javax.swing.JPanel Inicio;
+    private javax.swing.JButton JugadoElim;
     private javax.swing.JTabbedPane Jugador;
     private javax.swing.JTabbedPane JugadorEdit;
     private javax.swing.JTabbedPane JugadorX;
     private javax.swing.JTabbedPane Listar;
+    private javax.swing.JButton ListarTod;
     private javax.swing.JTextField NacionalidadJ;
     private javax.swing.JTextField NombreEquipo;
     private javax.swing.JTextField NombreEstadio;
@@ -690,11 +918,14 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Simulacion;
     private javax.swing.JComboBox<String> TipoJugador;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JTextArea d;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -708,5 +939,10 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
