@@ -5,6 +5,8 @@
 package examen1p2_juanflores;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,6 +53,10 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         AgregarEstadio = new javax.swing.JButton();
         EstadioEdit = new javax.swing.JTabbedPane();
         EstadioX = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        Estadio_Eliminar = new javax.swing.JComboBox<>();
+        EliminarEstadio = new javax.swing.JButton();
         Jugador = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -114,6 +120,11 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         jLabel6.setText("EQUIPO");
 
         Equiposs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Equiposs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EquipossMouseClicked(evt);
+            }
+        });
 
         AgregarEstadio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AgregarEstadio.setText("AGREGAR");
@@ -179,6 +190,60 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
 
         FIFA.addTab("Agregar Estadio", Estadio);
         FIFA.addTab("Editar Estadio", EstadioEdit);
+
+        jLabel13.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel13.setText("INGRESE EL ESTADIO A ELIMINAR: ");
+
+        Estadio_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Estadio_EliminarMouseClicked(evt);
+            }
+        });
+
+        EliminarEstadio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        EliminarEstadio.setText("ELIMINAR");
+        EliminarEstadio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminarEstadioMouseClicked(evt);
+            }
+        });
+        EliminarEstadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarEstadioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(258, 258, 258)
+                        .addComponent(Estadio_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(EliminarEstadio)))
+                .addContainerGap(168, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel13)
+                .addGap(38, 38, 38)
+                .addComponent(Estadio_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(EliminarEstadio)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        EstadioX.addTab("tab1", jPanel5);
+
         FIFA.addTab("Eliminar Estadio", EstadioX);
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -215,7 +280,11 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
             }
         });
 
-        EquiposJ.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        EquiposJ.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EquiposJMouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("TIPO DE JUGADOR");
@@ -415,6 +484,8 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         
         equipos.add(new Equipo(nombre, pais));
         
+        JOptionPane.showMessageDialog(this, "Equipo Ingresado Exitosamente");
+        
     }//GEN-LAST:event_AgregarEquipoActionPerformed
 
     private void PieJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PieJugadorActionPerformed
@@ -433,16 +504,23 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
         
         estadios.add(new Estadio(nombre, ciudad, capac));
         
-
+        JOptionPane.showMessageDialog(this, "Estadio ingresado exitosamente");
     }//GEN-LAST:event_AgregarEstadioMouseClicked
 
     private void AgregarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarJugadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AgregarJugadorActionPerformed
 
+    
     private void AgregarJugadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarJugadorMouseClicked
        
+        if(equipos.isEmpty()){
+            JOptionPane.showMessageDialog(this, "No puede agregar jugadores si no hay equipos");
+            
+        }else{
        
+         
+            
        String tipo = TipoJugador.getSelectedItem().toString();
        
        if("Portero".equals(tipo)){
@@ -450,6 +528,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
           int edad = Integer.parseInt(EdadJugador.getText());
           String nacionalidad = NacionalidadJ.getText(); 
           String pieJugador = PieJugador.getText();
+          
           String equipo = EquiposJ.getSelectedItem().toString();
           jugadores.add(new Portero(nombre, edad, nacionalidad, pieJugador, equipo));
            
@@ -458,6 +537,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
            int edad = Integer.parseInt(EdadJugador.getText());
            String nacionalidad = NacionalidadJ.getText();
            String pieJugador = PieJugador.getText();
+           
            String equipo = EquiposJ.getSelectedItem().toString();
            jugadores.add(new Defensa(nombre, edad, nacionalidad, pieJugador, equipo));
            
@@ -466,6 +546,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
            int edad = Integer.parseInt(EdadJugador.getText());
            String nacionalidad = NacionalidadJ.getText();
            String pieJugador = PieJugador.getText();
+           
            String equipo = EquiposJ.getSelectedItem().toString();
            jugadores.add(new Mediocampista(nombre, edad, nacionalidad, pieJugador, equipo));
            
@@ -474,12 +555,56 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
            int edad = Integer.parseInt(EdadJugador.getText());
            String nacionalidad = NacionalidadJ.getText();
            String pieJugador = PieJugador.getText();
+         
            String equipo = EquiposJ.getSelectedItem().toString();
            jugadores.add(new Delantero(nombre, edad, nacionalidad, pieJugador, equipo));
        }
        
+       
+       
+       
+       JOptionPane.showMessageDialog(this, "Jugador Ingresado Exitosamente");
+       
+        }
     }//GEN-LAST:event_AgregarJugadorMouseClicked
 
+    private void EquiposJMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EquiposJMouseClicked
+        DefaultComboBoxModel modelo = ((DefaultComboBoxModel)EquiposJ.getModel());
+        
+        for (Equipo equipo : equipos) {
+            modelo.addElement(equipo.getNombre());
+        } 
+    }//GEN-LAST:event_EquiposJMouseClicked
+
+    private void EquipossMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EquipossMouseClicked
+        DefaultComboBoxModel modelo = ((DefaultComboBoxModel)EquiposJ.getModel());
+        
+        for (Equipo equipo : equipos) {
+            modelo.addElement(equipo.getNombre());
+        }
+    }//GEN-LAST:event_EquipossMouseClicked
+
+    private void EliminarEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEstadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarEstadioActionPerformed
+
+    private void Estadio_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Estadio_EliminarMouseClicked
+        DefaultComboBoxModel modelo = ((DefaultComboBoxModel)Estadio_Eliminar.getModel());
+        
+        for (Estadio estadio : estadios) {
+            modelo.addElement(estadio.getNombreEs());
+        }
+    }//GEN-LAST:event_Estadio_EliminarMouseClicked
+
+    private void EliminarEstadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarEstadioMouseClicked
+       
+    }//GEN-LAST:event_EliminarEstadioMouseClicked
+
+    
+    public void llenarComboEquipo(){
+        
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -522,6 +647,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
     private javax.swing.JTextField CapacidadEstadio;
     private javax.swing.JTextField CiudadEstadio;
     private javax.swing.JTextField EdadJugador;
+    private javax.swing.JButton EliminarEstadio;
     private javax.swing.JTabbedPane Equipo;
     private javax.swing.JTabbedPane EquipoEdit;
     private javax.swing.JTabbedPane EquipoX;
@@ -530,6 +656,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Estadio;
     private javax.swing.JTabbedPane EstadioEdit;
     private javax.swing.JTabbedPane EstadioX;
+    private javax.swing.JComboBox<String> Estadio_Eliminar;
     private javax.swing.JTabbedPane FIFA;
     private javax.swing.JPanel Inicio;
     private javax.swing.JTabbedPane Jugador;
@@ -549,6 +676,7 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -561,5 +689,6 @@ public class Examen1P2_JuanFlores extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }

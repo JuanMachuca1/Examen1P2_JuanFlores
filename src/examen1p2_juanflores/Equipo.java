@@ -70,6 +70,8 @@ public class Equipo {
         return "Equipo{" + "nombre=" + nombreEq + ", pais=" + pais + ", rating=" + rating + ", Plantilla=" + Plantilla + '}';
     }
     
+  
+    
     
     
 }
